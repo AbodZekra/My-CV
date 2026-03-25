@@ -1,1655 +1,784 @@
-<!doctype html>
-<html lang="ar">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>سيرة ذاتية — Abdolqader Zekra</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome for icons -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>عبدالقادر بشير زكرة CV</title>
+  <!-- Google Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
-      /* Light theme colors - professional palette */
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --muted: #64748b;
-      --text: #0f172a;
-      --accent: #0ea5e9; /* professional blue */
-      --accent-2: #3b82f6;
-      --soft: #f1f5f9;
-      --shadow: rgba(15, 23, 42, 0.08);
-      --radius: 16px;
-      --gradient: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
-      --success: #10b981;
-      --warning: #f59e0b;
-      --error: #ef4444;
+      --bg-light: #f6f9fe;
+      --card-light: #ffffff;
+      --text-light: #0a1e2f;
+      --muted-light: #4a5b6e;
+      --accent: #1e6fdf;
+      --accent-glow: rgba(30, 111, 223, 0.2);
+      --soft-light: #eef3fc;
+      --border-light: rgba(0, 0, 0, 0.05);
+      --shadow-sm: 0 10px 25px -8px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+      --shadow-hover: 0 25px 35px -12px rgba(0, 0, 0, 0.12);
+      --gradient-primary: linear-gradient(135deg, #1e6fdf 0%, #3b82f6 100%);
     }
 
     .dark {
-      /* Dark theme colors - professional palette */
-      --bg: #0f172a;
-      --card: #1e293b;
-      --muted: #94a3b8;
-      --text: #f1f5f9;
-      --accent: #38bdf8;
-      --accent-2: #60a5fa;
-      --soft: #334155;
-      --shadow: rgba(2, 6, 23, 0.6);
-      --gradient: linear-gradient(135deg, #38bdf8 0%, #60a5fa 100%);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-      scroll-behavior: smooth;
+      --bg-light: #0b1120;
+      --card-light: #121826;
+      --text-light: #eef2ff;
+      --muted-light: #9ca3af;
+      --soft-light: #1e293b;
+      --border-light: rgba(255, 255, 255, 0.06);
+      --shadow-sm: 0 10px 25px -8px rgba(0, 0, 0, 0.4);
+      --shadow-hover: 0 25px 35px -12px rgba(0, 0, 0, 0.5);
+      --accent-glow: rgba(59, 130, 246, 0.3);
     }
 
     body {
-      margin: 0;
-      font-family: "Cairo", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transition: background 0.3s ease, color 0.3s ease;
-      padding: 20px;
+      font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.25s ease, color 0.25s;
       line-height: 1.6;
+      padding: 32px 24px;
     }
 
-    /* Container */
-    .resume-wrap {
-      max-width: 1200px;
+    /* Container grid - fully responsive */
+    .resume-grid {
+      max-width: 1280px;
       margin: 0 auto;
-      display: flex;
-      gap: 30px;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 28px;
+      align-items: start;
     }
 
-    /* Sidebar (profile) */
-    .sidebar {
-      width: 340px;
-      min-width: 280px;
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 30px;
-      box-shadow: 0 10px 25px var(--shadow);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      flex-shrink: 0;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Sidebar card */
+    .sidebar-card {
+      background: var(--card-light);
+      border-radius: 32px;
+      backdrop-filter: blur(2px);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      padding: 28px 20px;
+      transition: all 0.3s;
+      position: sticky;
+      top: 28px;
     }
 
-    .dark .sidebar {
-      border: 1px solid rgba(255, 255, 255, 0.05);
+    .main-card {
+      background: var(--card-light);
+      border-radius: 32px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      padding: 28px 32px;
+      transition: all 0.3s;
     }
 
-    .profile-photo {
-      width: 120px;
-      height: 120px;
+    /* profile image circle */
+    .photo-wrapper {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 20px;
       border-radius: 50%;
-      background: var(--gradient);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 28px;
-      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.25);
-      margin-inline-start: auto;
-      margin-inline-end: auto;
+      background: var(--gradient-primary);
+      padding: 4px;
+      box-shadow: 0 12px 28px var(--accent-glow);
       transition: transform 0.3s ease;
     }
-
-    .profile-photo:hover {
-      transform: scale(1.05);
-    }
-
-    .name {
-      text-align: center;
-      font-weight: 700;
-      font-size: 24px;
-      margin: 10px 0 0 0;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .title {
-      text-align: center;
-      color: var(--muted);
-      font-weight: 600;
-      margin: 0;
-      font-size: 16px;
-      letter-spacing: 0.5px;
-    }
-
-    .sidebar .block {
-      padding-top: 10px;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    .dark .sidebar .block {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .muted {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .info-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      font-size: 15px;
-    }
-
-    .info-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 8px 0;
-      transition: transform 0.2s ease;
-    }
-
-    .info-item:hover {
-      transform: translateX(5px);
-    }
-
-    .info-item svg {
-      flex-shrink: 0;
-      margin-top: 3px;
-      opacity: 0.9;
-      color: var(--accent);
-    }
-
-    /* Main content */
-    .main {
-      flex: 1;
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 30px;
-      box-shadow: 0 10px 25px var(--shadow);
-      color: var(--text);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .dark .main {
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .controls {
-      display: flex;
-      gap: 12px;
-      justify-content: flex-end;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--soft);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 10px 16px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      color: var(--muted);
-      transition: all 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      background: var(--accent);
-      color: white;
-    }
-
-    .btn .dot {
-      width: 10px;
-      height: 10px;
+    .photo-wrapper:hover { transform: scale(1.02); }
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
+      background: var(--card-light);
+      display: block;
     }
 
-    /* Sections */
-    .section {
-      margin-bottom: 24px;
+    .name-ar, .name-en {
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+    .job-title {
+      text-align: center;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 6px;
+      letter-spacing: 0.3px;
     }
 
-    .section h3 {
-      margin: 0 0 16px 0;
+    .info-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--border-light);
+    }
+    .info-icon {
+      width: 34px;
+      color: var(--accent);
+      font-size: 18px;
+      text-align: center;
+    }
+    .info-text { font-size: 14px; font-weight: 500; word-break: break-word; }
+    .info-label { font-size: 12px; color: var(--muted-light); font-weight: 500; }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--soft-light);
+      padding: 12px 16px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      transition: all 0.25s;
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .social-link i { font-size: 20px; color: var(--accent); width: 28px; }
+    .social-link:hover { background: var(--accent); color: white; transform: translateX(4px); }
+    .social-link:hover i { color: white; }
+
+    /* section styling */
+    .section-title {
       font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 20px;
       position: relative;
       display: inline-block;
     }
-
-    .section h3::after {
+    .section-title:after {
       content: '';
       position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 40px;
+      bottom: -8px;
+      right: 0;
+      width: 48px;
       height: 3px;
-      background: var(--gradient);
-      border-radius: 2px;
+      background: var(--gradient-primary);
+      border-radius: 4px;
     }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 24px;
-    }
-
-    .skill {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .language-bars {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .lang-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .dots {
-      display: flex;
-      gap: 8px;
-    }
-
-    .dot-small {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #e2e8f0;
-      box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-    }
-
-    .dark .dot-small {
-      background: #334155;
-    }
-
-    .dot-small.on {
-      background: var(--accent);
-      transform: scale(1.1);
-    }
-
-    /* Skill tags */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .tag {
-      background: var(--soft);
-      padding: 8px 14px;
-      border-radius: 12px;
-      font-size: 14px;
-      color: var(--muted);
-      transition: all 0.2s ease;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .dark .tag {
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .tag:hover {
-      background: var(--accent);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    /* Improved tech icons */
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .tech-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      padding: 12px;
-      background: var(--soft);
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .dark .tech-item {
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .tech-item:hover {
-      background: var(--accent);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
-    }
-
-    .tech-icon {
-      font-size: 24px;
-      color: var(--accent);
-      transition: all 0.3s ease;
-    }
-
-    .tech-item:hover .tech-icon {
-      color: white;
-    }
-
-    .tech-name {
-      font-size: 12px;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    /* Progress bars */
-    .progress-bar {
-      height: 6px;
-      background: var(--soft);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 5px;
-    }
-
-    .progress {
-      height: 100%;
-      background: var(--gradient);
-      border-radius: 10px;
-      transition: width 1s ease-in-out;
-    }
-
-    /* Contact links */
-    .contact-link {
-      color: var(--accent);
-      text-decoration: none;
-      transition: all 0.2s ease;
+    .skill-badge {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
+      background: var(--soft-light);
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+    .skill-badge i { color: var(--accent); font-size: 14px; }
+    .skill-badge:hover { background: var(--accent); color: white; transform: translateY(-2px); }
+    .skill-badge:hover i { color: white; }
+
+    .tech-stack-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
     }
 
-    .contact-link:hover {
-      text-decoration: underline;
-      transform: translateX(3px);
+    /* experience & project cards */
+    .exp-item, .project-item {
+      background: var(--soft-light);
+      border-radius: 24px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: all 0.25s;
+      border: 1px solid var(--border-light);
     }
-
-    /* GitHub link */
-    .github-link {
+    .exp-item:hover, .project-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent);
+    }
+    .exp-header {
       display: flex;
       align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .exp-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--card-light);
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--accent);
+    }
+    .exp-title {
+      font-weight: 800;
+      font-size: 18px;
+    }
+    .exp-sub {
+      font-size: 13px;
+      color: var(--muted-light);
+      font-weight: 500;
+    }
+    .exp-desc {
+      font-size: 14px;
+      color: var(--muted-light);
+      margin-top: 8px;
+      padding-right: 16px;
+      border-right: 2px solid var(--accent);
+    }
+    .project-link {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
       gap: 8px;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: var(--soft);
-      border-radius: 12px;
-      color: var(--muted);
+      font-weight: 700;
+      color: var(--accent);
       text-decoration: none;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: gap 0.2s;
+    }
+    .project-link:hover { gap: 12px; text-decoration: underline; }
+
+    .progress-skill {
+      margin-bottom: 14px;
+    }
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .progress-bar-bg {
+      height: 6px;
+      background: var(--border-light);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--gradient-primary);
+      border-radius: 10px;
+      transition: width 1s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
-    .dark .github-link {
-      border: 1px solid rgba(255, 255, 255, 0.05);
+    .lang-dots {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #cbd5e1;
+    }
+    .dot.filled { background: var(--accent); }
+
+    /* two col layout inside main */
+    .two-col-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 28px;
+    }
+    @media (max-width: 900px) {
+      .resume-grid { grid-template-columns: 1fr; gap: 24px; }
+      .sidebar-card { position: relative; top: 0; }
+      .two-col-layout { grid-template-columns: 1fr; gap: 20px; }
+    }
+    @media (max-width: 560px) {
+      body { padding: 16px; }
+      .main-card { padding: 20px; }
+      .sidebar-card { padding: 20px; }
     }
 
-    .github-link:hover {
-      background: var(--accent);
+    /* floating controls */
+    .floating-controls {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 1000;
+      display: flex;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+      padding: 8px 14px;
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .ctrl-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
       color: white;
-      transform: translateY(-2px);
+      font-size: 20px;
     }
+    .ctrl-btn:hover {
+      background: var(--accent);
+      transform: scale(1.05);
+    }
+    .rtl .floating-controls { left: auto; right: 24px; }
 
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .resume-wrap {
-        flex-direction: column;
-        padding: 10px;
-      }
-      
-      .sidebar {
-        width: 100%;
-        min-width: unset;
-        order: 1;
-      }
-      
-      .main {
-        order: 2;
-      }
-      
-      .controls {
-        justify-content: space-between;
-      }
-      
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-      
-      .tech-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
+    /* animations */
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-card {
+      animation: fadeSlide 0.55s ease forwards;
+    }
+    hr { border-color: var(--border-light); margin: 16px 0; }
+    .text-muted { color: var(--muted-light); }
+    .mt-2 { margin-top: 8px; }
+    .flex-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    /* highlight summary */
+    .highlight-summary {
+      background: linear-gradient(145deg, rgba(30,111,223,0.08), transparent);
+      border-radius: 24px;
+      padding: 20px;
+      margin-top: 16px;
     }
 
     @media (max-width: 768px) {
-      body {
-        padding: 10px;
-      }
-      
-      .sidebar {
-        padding: 20px;
-      }
-      
-      .main {
-        padding: 20px;
-      }
-      
-      .controls .btn {
-        padding: 8px 12px;
-      }
-      
-      .profile-photo {
-        width: 100px;
-        height: 100px;
-        font-size: 24px;
-      }
-      
-      .name {
-        font-size: 22px;
-      }
-      
-      .tech-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 5px;
-      }
-      
-      .sidebar, .main {
-        padding: 15px;
-        border-radius: 12px;
-      }
-      
-      .profile-photo {
-        width: 80px;
-        height: 80px;
-        font-size: 20px;
-      }
-      
-      .name {
-        font-size: 20px;
-      }
-      
-      .section h3 {
-        font-size: 18px;
-      }
-      
-      .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    /* Small utility */
-    .center {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .muted-sm {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
-      margin: 16px 0;
-      border-radius: 2px;
-    }
-
-    .dark .divider {
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    }
-
-    a.clean {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    a.clean:hover {
-      text-decoration: underline;
-      transform: translateX(3px);
-    }
-
-    /* LTR adjustments when language is English */
-    .ltr body, .ltr .resume-wrap {
-      direction: ltr;
-    }
-
-    .rtl body, .rtl .resume-wrap {
-      direction: rtl;
-    }
-
-    /* Toggle active styles */
-    .toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px;
-      border-radius: 999px;
-      background: var(--soft);
-    }
-
-    .small-muted {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* Subtle headings */
-    .headline {
-      font-size: 16px;
-      color: var(--muted);
-      font-weight: 500;
-      margin: 8px 0 12px;
-      line-height: 1.5;
-    }
-
-    .lead {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* Highlight box */
-    .highlight-box {
-      background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), transparent);
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid rgba(14, 165, 233, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .highlight-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15);
-    }
-
-    /* Animation for elements */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .animate-fade {
-      animation: fadeIn 0.5s ease forwards;
-    }
-
-    /* Print styles */
-    @media print {
-      body {
-        padding: 0;
-        background: white;
-        color: black;
-      }
-      
-      .resume-wrap {
-        max-width: 100%;
-        box-shadow: none;
-      }
-      
-      .sidebar, .main {
-        box-shadow: none;
-        border: 1px solid #ddd;
-      }
-      
-      .controls {
-        display: none;
-      }
-      
-      .btn {
-        display: none;
-      }
-      .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.skill-category {
-  background: var(--card);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px var(--shadow);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.dark .skill-category {
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.skill-category:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px var(--shadow);
-}
-
-.category-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--soft);
-}
-
-.category-icon {
-  font-size: 20px;
-  color: var(--accent);
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.category-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text);
-  margin: 0;
-}
-
-.skills-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.skill-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skill-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.skill-percentage {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-.skill-bar {
-  height: 6px;
-  background: var(--soft);
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
-
-.skill-progress {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  border-radius: 10px;
-  width: 0;
-  transition: width 1s ease-in-out;
-  position: relative;
-}
-
-.skill-progress::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 20px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
-  border-radius: 0 10px 10px 0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .floating-controls {
+    bottom: 16px;
+    left: 16px;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
   }
-  
-  .skill-category {
-    padding: 16px;
-  }
-  
-  .category-header {
-    gap: 10px;
-  }
-  
-  .category-title {
+
+  .ctrl-btn {
+    width: 36px;
+    height: 36px;
     font-size: 16px;
   }
-}
-
-@media (max-width: 480px) {
-  .skills-grid {
-    gap: 12px;
-  }
   
-  .skill-category {
-    padding: 12px;
+  .ctrl-btn:hover {
+    transform: scale(1.05);
   }
 }
-/* Floating Controls Styles */
-.floating-controls {
+
+/* Lightbox overlay - الخلفية الضبابية */
+.lightbox-overlay {
   position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: var(--card);
-  border-radius: 16px;
-  padding: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.dark .floating-controls {
-  background: rgba(30, 41, 59, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.floating-controls:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-}
-
-.floating-toggle {
-  position: relative;
-}
-
-.floating-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--soft);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  color: var(--muted);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
-  min-width: 120px;
-  position: relative;
-  overflow: hidden;
-}
-
-.dark .floating-btn {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.floating-btn::before {
-  content: '';
-  position: absolute;
   top: 0;
-  left: -100%;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.6s;
-}
-
-.floating-btn:hover::before {
-  left: 100%;
-}
-
-.floating-btn:hover {
-  background: var(--accent);
-  color: white;
-  transform: translateX(4px);
-  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3);
-}
-
-.floating-btn:active {
-  transform: translateX(2px) scale(0.98);
-}
-
-.floating-btn svg {
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.floating-btn:hover svg {
-  transform: rotate(10deg);
-}
-
-.floating-text {
-  font-weight: 600;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/* RTL Support */
-.rtl .floating-controls {
-  left: auto;
-  right: 20px;
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-.rtl .floating-btn:hover {
-  transform: translateX(-4px);
+/* محتوى الـ Lightbox */
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: zoomIn 0.3s ease;
 }
 
-.rtl .floating-btn:active {
-  transform: translateX(-2px) scale(0.98);
+.lightbox-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
 }
 
-/* Mobile Responsive */
+/* زر الإغلاق */
+.lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  transition: all 0.2s ease;
+  z-index: 10000;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* تأثير التكبير عند الفتح */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* جعل الصورة قابلة للنقر مع مؤشر يد */
+.photo-wrapper {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.photo-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.profile-img {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* تنسيق للهواتف */
 @media (max-width: 768px) {
-  .floating-controls {
-    top: 15px;
-    left: 15px;
-    right: auto;
-    padding: 10px;
-    gap: 8px;
+  .lightbox-close {
+    top: -40px;
+    right: 0;
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
   }
   
-  .rtl .floating-controls {
-    left: 15px;
-    right: auto;
-  }
-  
-  .floating-btn {
-    padding: 10px 14px;
-    min-width: 110px;
-    font-size: 13px;
-    gap: 8px;
-  }
-  
-  .floating-btn svg {
-    width: 16px;
-    height: 16px;
+  .lightbox-image {
+    border-radius: 16px;
   }
 }
 
-@media (max-width: 480px) {
-  .floating-controls {
-    top: 10px;
-    left: 10px;
-    padding: 8px;
-    border-radius: 14px;
-  }
-  
-  .rtl .floating-controls {
-    left: 10px;
-    right: auto;
-  }
-  
-  .floating-btn {
-    padding: 8px 12px;
-    min-width: 100px;
-    font-size: 12px;
-    gap: 6px;
-  }
-  
-  .floating-text {
-    font-size: 12px;
-  }
+/* في حالة RTL */
+.rtl .lightbox-close {
+  right: auto;
+  left: 0;
 }
-
-/* Animation for initial load */
-@keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.floating-controls {
-  animation: slideInFromLeft 0.5s ease-out;
-}
-
-.rtl .floating-controls {
-  animation: slideInFromRight 0.5s ease-out;
-}
-
-@keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Hide original controls */
-.controls {
-  display: none;
-}
-    }
   </style>
 </head>
 <body class="rtl">
+  <div class="floating-controls">
+    <button id="langToggle" class="ctrl-btn" aria-label="Switch Language"><i class="fas fa-language"></i></button>
+    <button id="themeToggle" class="ctrl-btn" aria-label="Dark/Light"><i class="fas fa-moon"></i></button>
+  </div>
+  <div id="lightboxOverlay" class="lightbox-overlay">
+        <div class="lightbox-content">
+          <img id="lightboxImage" class="lightbox-image" alt="صورة مكبرة">
+        </div>
+      </div>
+  <div class="resume-grid" id="cvRoot">
+    <!-- Sidebar (personal) -->
+    <aside class="sidebar-card animate-card">
+      <div class="photo-wrapper" id="photoWrapper">
+        <img id="profilePhoto" class="profile-img" alt="عبدالقادر بشير زكرة" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231e6fdf'/%3E%3Ctext x='50' y='67' font-size='48' text-anchor='middle' fill='white' font-family='monospace'%3EAZ%3C/text%3E%3C/svg%3E">
+      </div>
 
-  <div class="resume-wrap" id="app">
-    <!-- SIDEBAR -->
-    <aside class="sidebar" aria-label="profile">
-      <div class="profile-photo" aria-hidden="true">AZ</div>
+      <!-- إضافة عنصر الـ Lightbox الذي سيظهر عند التكبير -->
+      
       <div>
-        <div class="name">
-          <span class="lang-ar">عبدالقادر بشير زكرة</span>
-          <span class="lang-en" style="display:none">Abdolqader B. Zekra</span>
-        </div>
-        <div class="title">
-          <span class="lang-ar">مطور برمجيات</span>
-          <span class="lang-en" style="display:none">Software Developer</span>
-        </div>
+        <div class="name-ar lang-ar">عبدالقادر بشير زكرة</div>
+        <div class="name-en lang-en" style="display:none;">Abdolqader Basher Zekra</div>
+        <div class="job-title lang-ar">مهندس برمجيات | مطور ويب وأنظمة مدمجة</div>
+        <div class="job-title lang-en" style="display:none;">Software Engineer | Web & Embedded Developer</div>
       </div>
 
-      <div class="block section">
-        <div class="muted-sm"><strong class="lang-ar">ملخص عني</strong><span class="lang-en" style="display:none"><strong>About</strong></span></div>
-        <p class="lead">
-          <span class="lang-ar">مطور برمجيات أعمل بأحدث التقنيات الإلكترونية وأقوم بتصميم دوائر إلكترونية وصيانة الحواسيب مع قدرة على تنفيذ المشاريع بشكل عملي وفعال.</span>
-          <span class="lang-en" style="display:none">Software developer working with modern web and embedded technologies. Experienced in electronics prototyping and PC maintenance, able to deliver practical and effective solutions.</span>
-        </p>
+      <hr>
+      <div class="info-row"><div class="info-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="info-label lang-ar">مكان وتاريخ الميلاد</div><div class="info-text lang-ar">إدلب - معرة النعمان • 12/2/2004</div><div class="info-text lang-en" style="display:none;">Idlib - Ma'arat al-Numan • Feb 12, 2004</div></div></div>
+      <div class="info-row"><div class="info-icon"><i class="fas fa-envelope"></i></div><div><div class="info-label">Email</div><div class="info-text"><a href="mailto:Abdoalqaderzek@gmail.com" style="color:var(--accent); text-decoration:none;">Abdoalqaderzek@gmail.com</a></div></div></div>
+      <div class="info-row"><div class="info-icon"><i class="fab fa-whatsapp"></i></div><div><div class="info-label">WhatsApp</div><div class="info-text"><a href="https://wa.me/963969375584" style="color:var(--accent);">+963 969 375 584</a></div></div></div>
+      
+      <a href="https://github.com/AbodZekra" target="_blank" class="social-link"><i class="fab fa-github"></i><span class="lang-ar">GitHub</span><span class="lang-en" style="display:none;">GitHub</span></a>
+      <a href="https://www.linkedin.com/in/abdoalqader-zekra-71b267378" target="_blank" class="social-link"><i class="fab fa-linkedin"></i><span class="lang-ar">LinkedIn</span><span class="lang-en" style="display:none;">LinkedIn</span></a>
+      
+      <hr>
+      <div><div class="section-title lang-ar">المهارات الشخصية</div><div class="section-title lang-en" style="display:none;">Personal Strengths</div></div>
+      <div class="flex-wrap mt-2">
+        <span class="skill-badge"><i class="fas fa-brain"></i><span class="lang-ar">المرونة وحل المشكلات</span><span class="lang-en" style="display:none;">Adaptability</span></span>
+        <span class="skill-badge"><i class="fas fa-chalkboard-user"></i><span class="lang-ar">التعلم الذاتي</span><span class="lang-en" style="display:none;">Self-learning</span></span>
+        <span class="skill-badge"><i class="fas fa-chart-line"></i><span class="lang-ar">تحليل رياضي</span><span class="lang-en" style="display:none;">Analytical mind</span></span>
+        <span class="skill-badge"><i class="fas fa-clipboard-list"></i><span class="lang-ar">إدارة المشاريع</span><span class="lang-en" style="display:none;">Project management</span></span>
       </div>
-
-      <div class="block section">
-        <div class="muted-sm"><strong class="lang-ar">المعلومات</strong><span class="lang-en" style="display:none"><strong>Contact</strong></span></div>
-        <div class="info-list">
-          <div class="info-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div>
-              <div class="muted small">
-                <span class="lang-ar">مكان وتاريخ الميلاد</span>
-                <span class="lang-en" style="display:none">Place & DOB</span>
-              </div>
-              <div class="muted-sm">
-                <span class="lang-ar">إدلب - معرة النعمان • 12/2/2004</span>
-                <span class="lang-en" style="display:none">Idlib - Ma'arat al-Numan • 12/2/2004</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 10v6a2 2 0 0 1-2 2H7l-4 4V6a2 2 0 0 1 2-2h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div>
-              <div class="muted small">
-                <span class="lang-ar">البريد الإلكتروني</span>
-                <span class="lang-en" style="display:none">Email</span>
-              </div>
-              <div class="muted-sm">
-                <a href="mailto:Abdoalqaderzek@gmail.com" class="contact-link">Abdoalqaderzek@gmail.com</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92V21a1 1 0 0 1-1.11 1A19 19 0 0 1 3 5.11 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75c.12.72.38 1.79.87 2.98a1 1 0 0 1-.24 1l-1.27 1.27a16 16 0 0 0 6.34 6.34l1.27-1.27a1 1 0 0 1 1-.24c1.19.49 2.26.75 2.98.87a1 1 0 0 1 .75 1V22z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div>
-              <div class="muted small">
-                <span class="lang-ar">الهاتف</span>
-                <span class="lang-en" style="display:none">Phone</span>
-              </div>
-              <div class="muted-sm">
-                <a href="https://wa.me/963969375584" class="contact-link" target="_blank">+963969375584</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="block section">
-        <div class="muted-sm"><strong class="lang-ar">مهارات شخصية</strong><span class="lang-en" style="display:none"><strong>Personal Skills</strong></span></div>
-        <div class="tags" style="margin-top:8px">
-          <div class="tag"><span class="lang-ar">المرونة في العمل</span><span class="lang-en" style="display:none">Adaptability</span></div>
-          <div class="tag"><span class="lang-ar">التعلم الذاتي</span><span class="lang-en" style="display:none">Self Learning</span></div>
-          <div class="tag"><span class="lang-ar">حل المشكلات</span><span class="lang-en" style="display:none">Problem Solving</span></div>
-          <div class="tag"><span class="lang-ar">إدارة المشاريع</span><span class="lang-en" style="display:none">Project Management</span></div>
-        </div>
-      </div>
-
-      <div class="block section">
-        <div class="muted-sm"><strong class="lang-ar">المهارات التقنية</strong><span class="lang-en" style="display:none"><strong>Tech Skills</strong></span></div>
-        <div class="tech-grid">
-          <div class="tech-item">
-            <i class="fab fa-react tech-icon"></i>
-            <div class="tech-name">React</div>
-          </div>
-          <div class="tech-item">
-            <i class="fas fa-code tech-icon"></i>
-            <div class="tech-name">Next.js</div>
-          </div>
-          <div class="tech-item">
-            <i class="fab fa-java tech-icon"></i>
-            <div class="tech-name">Java</div>
-          </div>
-          <div class="tech-item">
-            <i class="fas fa-cogs tech-icon"></i>
-            <div class="tech-name">C++</div>
-          </div>
-          <div class="tech-item">
-            <i class="fas fa-cog tech-icon"></i>
-            <div class="tech-name">C#</div>
-          </div>
-          <div class="tech-item">
-            <i class="fab fa-node-js tech-icon"></i>
-            <div class="tech-name">Node.js</div>
-          </div>
-          <div class="tech-item">
-            <i class="fas fa-microchip tech-icon"></i>
-            <div class="tech-name">Arduino</div>
-          </div>
-          <div class="tech-item">
-            <i class="fas fa-database tech-icon"></i>
-            <div class="tech-name">SQL</div>
-          </div>
-          <div class="tech-item">
-            <i class="fab fa-git-alt tech-icon"></i>
-            <div class="tech-name">Git</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="block section">
-        <a href="https://github.com/AbodZekra" target="_blank" class="github-link">
-          <i class="fab fa-github"></i>
-          <span class="lang-ar">قم بزيارة صفحتي على GitHub</span>
-          <span class="lang-en" style="display:none">GitHub Profile</span>
-        </a>
+      <div class="mt-2"><div class="section-title lang-ar">التقنيات الأساسية</div><div class="section-title lang-en" style="display:none;">Core Tech</div></div>
+      <div class="tech-stack-grid">
+        <span class="skill-badge"><i class="fab fa-react"></i> React</span>
+        <span class="skill-badge"><i class="fas fa-code"></i> Next.js</span>
+        <span class="skill-badge"><i class="fab fa-js"></i> TypeScript</span>
+        <span class="skill-badge"><i class="fab fa-node-js"></i> Node.js</span>
+        <span class="skill-badge"><i class="fas fa-microchip"></i> ESP32/Arduino</span>
+        <span class="skill-badge"><i class="fab fa-java"></i> Java / C++</span>
       </div>
     </aside>
 
-    <!-- MAIN -->
-    <main class="main" aria-label="resume main">
-<div class="floating-controls" style="position: fixed; top: 20px; left: 20px; z-index: 1000; display: flex; flex-direction: row; gap: 10px; background: transparent; border-radius: 16px; padding: 8px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
-  <style>
-    /* أزرار دائرية صغيرة بأيقونات فقط */
-    .floating-btn {
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--soft);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      color: var(--muted);
-      cursor: pointer;
-      transition: transform 0.15s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .floating-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-    }
-    .floating-btn:active { transform: translateY(0); }
+    <!-- Main content -->
+    <main class="main-card animate-card">
+      <!-- headline -->
+      <div class="highlight-summary">
+        <p class="lang-ar" style="font-weight:500; font-size:1rem;"> مطوّر برمجيات يجمع بين تطوير الويب المتقدم، الأنظمة المدمجة، وصيانة العتاد. أركز على تقديم حلول أنيقة عالية الأداء وتجربة مستخدم ممتازة. شغوف بتحويل الأفكار إلى مشاريع واقعية متكاملة.</p>
+        <p class="lang-en" style="display:none; font-weight:500;"> Software developer combining modern web development, embedded systems, and hardware maintenance. I focus on delivering elegant, high‑performance solutions with exceptional UX. Passionate about turning ideas into fully integrated projects.</p>
+      </div>
 
-    /* إخفاء النص نهائياً (نستخدم aria-label للوصولية) */
-    .floating-text { display: none !important; }
+      <!-- Two column dynamic -->
+      <div class="two-col-layout">
+        <div>
+          <!-- التعليم -->
+<div class="section-title lang-ar">التعليم</div>
+<div class="section-title lang-en" style="display:none;">Education</div>
 
-    /* حجم الأيقونات */
-    .floating-btn svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    /* تحسين على الشاشات الضيقة */
-    @media (max-width: 420px) {
-      .floating-controls { top: 12px; left: 12px; gap: 8px; padding: 6px; }
-      .floating-btn { width: 38px; height: 38px; }
-      .floating-btn svg { width: 16px; height: 16px; }
-    }
-  </style>
-
-  <!-- language toggle -->
-  <div class="floating-toggle" title="Language / اللغة" style="position: relative;">
-    <button id="langBtn" class="floating-btn" aria-pressed="true" aria-label="Language">
-      <!-- Globe icon -->
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M3 12h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <span class="floating-text lang-ar">عربي</span>
-      <span class="floating-text lang-en">EN</span>
-    </button>
+<div class="exp-item">
+  <div class="exp-header">
+    <div class="exp-icon">
+      <i class="fas fa-university"></i>
+    </div>
+    <div>
+      <div class="exp-title lang-ar">جامعة إدلب — هندسة معلوماتية</div>
+      <div class="exp-title lang-en" style="display:none;">Idlib University — Informatics Engineering</div>
+      
+      <div class="exp-sub lang-ar">السنة الثالثة • معدل مرتفع</div>
+      <div class="exp-sub lang-en" style="display:none;">3rd Year • High GPA</div>
+    </div>
   </div>
-
-  <!-- theme toggle -->
-  <div class="floating-toggle" title="Theme / الوضع" style="position: relative;">
-    <button id="themeBtn" class="floating-btn" aria-pressed="false" aria-label="Theme">
-      <!-- Theme (sun/moon) icon -->
-      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span class="floating-text lang-ar">الوضع</span>
-      <span class="floating-text lang-en">Theme</span>
-    </button>
+  
+  <div class="exp-desc lang-ar">
+    <strong>المعدل التراكمي:</strong> السنة الأولى 84%، السنة الثانية 90%
+    <br>
+    <strong>التركيز الأكاديمي:</strong> البرمجيات، الخوارزميات، الإلكترونيات، أنظمة التشغيل
+  </div>
+  
+  <div class="exp-desc lang-en" style="display:none;">
+    <strong>Cumulative GPA:</strong> Year 1: 84%, Year 2: 90%
+    <br>
+    <strong>Academic Focus:</strong> Software Engineering, Algorithms, Electronics, Operating Systems
   </div>
 </div>
 
-      <!-- Header -->
-      <section class="section">
-        <h2 style="margin:0;font-size:26px">
-          <span class="lang-ar">السيرة الذاتية </br> عبدالقادر بشير زكرة</span>
-          <span class="lang-en" style="display:none">Resume </br> Abdolqader Basher. Zekra</span>
-        </h2>
-        <p class="headline">
-          <span class="lang-ar">مطور برمجيات قادر على تشكيل دوائر إلكترونية والعمل بكفاءة، وخبرة في صيانة الحواسيب.</span>
-          <span class="lang-en" style="display:none">Software developer skilled in electronics prototyping and PC maintenance.</span>
-        </p>
-      </section>
+          <!-- الخبرات -->
+          <div class="section-title lang-ar" style="margin-top: 12px;">الخبرات العملية</div>
+          <div class="section-title lang-en" style="display:none; margin-top:12px;">Work Experience</div>
+          <div class="exp-item"><div class="exp-header"><div class="exp-icon"><i class="fas fa-laptop-code"></i></div><div><div class="exp-title lang-ar">تطوير الويب (React/Next.js)</div><div class="exp-title lang-en" style="display:none;">Web Development (React/Next.js)</div></div></div><div class="exp-desc lang-ar">بناء تطبيقات ويب تفاعلية متجاوبة مع Next.js و TypeScript، مع تحسين الأداء وربط APIs، تجربة مستخدم احترافية.</div><div class="exp-desc lang-en" style="display:none;">Building interactive responsive web apps with Next.js and TypeScript, performance optimization, API integration, and professional UX.</div></div>
+          <div class="exp-item"><div class="exp-header"><div class="exp-icon"><i class="fas fa-microchip"></i></div><div><div class="exp-title lang-ar">الإلكترونيات والأنظمة المدمجة</div><div class="exp-title lang-en" style="display:none;">Embedded & Electronics</div></div></div><div class="exp-desc lang-ar">تصميم دوائر ونماذج أولية باستخدام ESP32 و Arduino، قراءة Datasheets، برمجة المتحكمات بلغات C/C++.</div><div class="exp-desc lang-en" style="display:none;">Circuit design and prototyping with ESP32 & Arduino, reading datasheets, microcontroller programming using C/C++.</div></div>
+          <div class="exp-item"><div class="exp-header"><div class="exp-icon"><i class="fas fa-tools"></i></div><div><div class="exp-title lang-ar">صيانة الحواسيب وتشخيص الأعطال</div><div class="exp-title lang-en" style="display:none;">PC Maintenance & Diagnostics</div></div></div><div class="exp-desc lang-ar">خبرة عملية في تفكيك وتجميع الأجهزة، تشخيص مشاكل العتاد والنظام، تحسين أداء الحواسيب.</div><div class="exp-desc lang-en" style="display:none;">Hands-on hardware disassembly/assembly, diagnosing system faults, performance optimization.</div></div>
 
-      <div class="divider"></div>
-
-      <div class="two-col">
-        <!-- left column (details) -->
-        <div>
-          <section class="section">
-            <h3><span class="lang-ar">التعليم</span><span class="lang-en" style="display:none">Education</span></h3>
-            <div class="highlight-box">
-              <div style="font-weight:600"> <span class="lang-ar">جامعة إدلب — هندسة معلوماتية</span><span class="lang-en" style="display:none">Idlib University — Computer Engineering</span></div>
-              <div class="muted-sm" style="margin-top:6px">
-                <span class="lang-ar">ناجح للسنة الدراسية الثالثة — معدل السنوات الدراسية:</br> السنة الأولى: 83%</br> السنة الثانية: 88%</span>
-                <span class="lang-en" style="display:none">Passed into 3rd academic year — GPA: </br>Year 1: 83%</br> Year 2: 88%</span>
-              </div>
-            </div>
-          </section>
-
-          <section class="section">
-            <h3><span class="lang-ar">الخبرات المهنية</span><span class="lang-en" style="display:none">Professional Experience</span></h3>
-            <div class="highlight-box" style="margin-bottom:16px">
-              <div style="font-weight:600">
-                <span class="lang-ar">خبرات برمجية في لغات متعددة</span>
-                <span class="lang-en" style="display:none">Multi-language programming experience</span>
-              </div>
-              <div class="muted-sm" style="margin-top:6px">
-                <span class="lang-ar">عملت على بناء منصات إلكترونية ومنصات مخصصة للطلاب مثل STUvoice وECL، ومشاريع برمجية للأجهزة المدمجة.</span>
-                <span class="lang-en" style="display:none">Built web platforms and student platforms such as STUvoice and ECL, and embedded software projects.</span>
-              </div>
-            </div>
-
-            <div class="highlight-box" style="margin-bottom:16px">
-              <div style="font-weight:600;">
-                <span class="lang-ar">خبرات إلكترونية</span><span class="lang-en" style="display:none">Electronics Experience</span>
-              </div>
-              <ul style="margin:8px 0 0 18px;color:var(--muted);line-height:1.6">
-                <li>
-                  <span class="lang-ar">حضور دورات إلكترونيات على الإنترنت والبحث عن الدارات المناسبة وقراءة Datasheets.</span>
-                  <span class="lang-en" style="display:none">Attended online electronics courses; component selection and reading datasheets.</span>
-                </li>
-                <li>
-                  <span class="lang-ar">إنشاء دوائر إلكترونية بسيطة مثل دوائر المؤقتات الزمنية وتوصيل شرائح ذكية (مثل ESP32) وبرمجتها.</span>
-                  <span class="lang-en" style="display:none">Designed simple circuits (timers), used microcontrollers (ESP32) and programmed them.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="highlight-box">
-              <div style="font-weight:600">
-                <span class="lang-ar">خبرات في صيانة الحواسيب</span><span class="lang-en" style="display:none">PC Maintenance</span>
-              </div>
-              <div class="muted-sm" style="margin-top:6px">
-                <span class="lang-ar">عملت في صيانة الحواسيب لمدة تقارب سنة ونصف، قادر على فك الأجهزة وتركيبها ومعرفة عيوبها التقنية.</span>
-                <span class="lang-en" style="display:none">About 1.5 years of PC maintenance: disassembly, assembly, and fault diagnosis.</span>
-              </div>
-            </div>
-          </section>
-
-          <section class="section">
-            <h3><span class="lang-ar">المهارات التقنية</span><span class="lang-en" style="display:none">Technical Skills</span></h3>
-            <div class="highlight-box">
-              <div class="skills-grid">
-                <!-- Web Development Skills -->
-                <div class="skill-category">
-                  <div class="category-header">
-                    <i class="fas fa-code category-icon"></i>
-                    <h4 class="category-title">Web Development</h4>
-                  </div>
-                  <div class="skills-container">
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">React</span>
-                        <span class="skill-percentage">85%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="85"></div>
-                      </div>
-                    </div>
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">Next.js</span>
-                        <span class="skill-percentage">80%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="80"></div>
-                      </div>
-                    </div>
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">Node.js</span>
-                        <span class="skill-percentage">75%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="75"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Programming Languages -->
-                <div class="skill-category">
-                  <div class="category-header">
-                    <i class="fas fa-laptop-code category-icon"></i>
-                    <h4 class="category-title">Programming</h4>
-                  </div>
-                  <div class="skills-container">
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">Java</span>
-                        <span class="skill-percentage">80%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="80"></div>
-                      </div>
-                    </div>
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">C++</span>
-                        <span class="skill-percentage">75%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="75"></div>
-                      </div>
-                    </div>
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">C#</span>
-                        <span class="skill-percentage">70%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="70"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Embedded Systems -->
-                <div class="skill-category">
-                  <div class="category-header">
-                    <i class="fas fa-microchip category-icon"></i>
-                    <h4 class="category-title">Embedded Systems</h4>
-                  </div>
-                  <div class="skills-container">
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">ESP32</span>
-                        <span class="skill-percentage">75%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="75"></div>
-                      </div>
-                    </div>
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">Arduino</span>
-                        <span class="skill-percentage">80%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="80"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Tools & Software -->
-                <div class="skill-category">
-                  <div class="category-header">
-                    <i class="fas fa-tools category-icon"></i>
-                    <h4 class="category-title">Tools & Software</h4>
-                  </div>
-                  <div class="skills-container">
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">VS Code</span>
-                        <span class="skill-percentage">90%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="90"></div>
-                      </div>
-                    </div>
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">Git</span>
-                        <span class="skill-percentage">85%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="85"></div>
-                      </div>
-                    </div>
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">Visual Studio</span>
-                        <span class="skill-percentage">80%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="80"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Design -->
-                <div class="skill-category">
-                  <div class="category-header">
-                    <i class="fas fa-palette category-icon"></i>
-                    <h4 class="category-title">Design</h4>
-                  </div>
-                  <div class="skills-container">
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">Canva</span>
-                        <span class="skill-percentage">70%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="70"></div>
-                      </div>
-                    </div>
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">UI Design</span>
-                        <span class="skill-percentage">65%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="65"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Electronics -->
-                <div class="skill-category">
-                  <div class="category-header">
-                    <i class="fas fa-bolt category-icon"></i>
-                    <h4 class="category-title">Electronics</h4>
-                  </div>
-                  <div class="skills-container">
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">Proteus</span>
-                        <span class="skill-percentage">75%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="75"></div>
-                      </div>
-                    </div>
-                    <div class="skill-item">
-                      <div class="skill-info">
-                        <span class="skill-name">Datasheets</span>
-                        <span class="skill-percentage">80%</span>
-                      </div>
-                      <div class="skill-bar">
-                        <div class="skill-progress" data-width="80"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section">
-            <h3><span class="lang-ar">اللغات</span><span class="lang-en" style="display:none">Languages</span></h3>
-            <div class="highlight-box">
-              <div class="language-bars">
-                <div class="lang-row">
-                  <div style="width:120px" class="muted-sm"><span class="lang-ar">العربية</span><span class="lang-en" style="display:none">Arabic</span></div>
-                  <div class="dots">
-                    <div class="dot-small on"></div>
-                    <div class="dot-small on"></div>
-                    <div class="dot-small on"></div>
-                    <div class="dot-small on"></div>
-                    <div class="dot-small on"></div>
-                  </div>
-                </div>
-
-                <div class="lang-row">
-                  <div style="width:120px" class="muted-sm"><span class="lang-ar">الإنجليزية</span><span class="lang-en" style="display:none">English</span></div>
-                  <div class="dots">
-                    <div class="dot-small on"></div>
-                    <div class="dot-small on"></div>
-                    <div class="dot-small"></div>
-                    <div class="dot-small"></div>
-                    <div class="dot-small"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
+          <!-- المهارات التقنية مع bars -->
+          <div class="section-title lang-ar" style="margin-top: 12px;">المهارات التقنية</div>
+          <div class="section-title lang-en" style="display:none;">Technical Skills</div>
+          <div><div class="progress-skill"><div class="skill-label"><span>React / Next.js</span><span>85%</span></div><div class="progress-bar-bg"><div class="progress-fill" data-width="85"></div></div></div>
+          <div class="progress-skill"><div class="skill-label"><span>TypeScript / JavaScript</span><span>80%</span></div><div class="progress-bar-bg"><div class="progress-fill" data-width="80"></div></div></div>
+          <div class="progress-skill"><div class="skill-label"><span>Java / C++ / C#</span><span>75%</span></div><div class="progress-bar-bg"><div class="progress-fill" data-width="75"></div></div></div>
+          <div class="progress-skill"><div class="skill-label"><span>Embedded (ESP32/Arduino)</span><span>78%</span></div><div class="progress-bar-bg"><div class="progress-fill" data-width="78"></div></div></div>
+          <div class="progress-skill"><div class="skill-label"><span>Git / VS Code</span><span>88%</span></div><div class="progress-bar-bg"><div class="progress-fill" data-width="88"></div></div></div></div>
+          <div class="flex-wrap mt-2"><span class="skill-badge">Tailwind CSS</span><span class="skill-badge">Node.js</span><span class="skill-badge">C++</span><span class="skill-badge">C#</span><span class="skill-badge">Arduino IDE</span></div>
         </div>
 
-        <!-- right column (side details) -->
-        <aside style="background:transparent;padding:0">
-          <div class="highlight-box">
-            <h3 style="margin-top:0"><span class="lang-ar">ملخص سريع</span><span class="lang-en" style="display:none">Quick Summary</span></h3>
-            <p class="muted-sm">
-              <span class="lang-ar">مطور برمجيات أعمل بأحدث التقنيات الإلكترونية والبرمجية، قادر على تنفيذ المشاريع بفعالية.</span>
-              <span class="lang-en" style="display:none">Software developer using modern electronic and software technologies, capable of delivering efficient projects.</span>
-            </p>
-
-            <div style="height:12px"></div>
-
-            <h4 style="margin-bottom:6px;font-size:16px"><span class="lang-ar">أدوات مميزة</span><span class="lang-en" style="display:none">Highlights</span></h4>
-            <div class="tags">
-              <div class="tag">React</div>
-              <div class="tag">Next.js</div>
-              <div class="tag">ESP32</div>
-              <div class="tag">Arduino</div>
-            </div>
-
-            <div style="height:12px"></div>
-            <div class="divider"></div>
-
-            <div style="margin-top:8px">
-              <div class="muted-sm"><strong class="lang-ar">معلومات إضافية</strong><span class="lang-en" style="display:none"><strong>Additional</strong></span></div>
-              <ul style="margin:8px 0 0 18px;color:var(--muted);line-height:1.6">
-                <li><span class="lang-ar">قادر على تشكيل دوائر إلكترونية وبرمجتها.</span><span class="lang-en" style="display:none">Able to prototype and program electronic circuits.</span></li>
-                <li><span class="lang-ar">خبرة في صيانة الحواسيب وتركيب الأجهزة.</span><span class="lang-en" style="display:none">Experience in PC maintenance and assembly.</span></li>
-              </ul>
-            </div>
-          </div>
-        </aside>
-
+        <!-- الجانب الأيمن: ملخص + مشاريع -->
+        <div>
+          <div class="section-title lang-ar">أبرز المشاريع</div>
+          <div class="section-title lang-en" style="display:none;">Featured Projects</div>
+          <div class="project-item"><i class="fas fa-comments" style="color:var(--accent); font-size:24px; margin-bottom:8px; display:inline-block;"></i><div class="exp-title">STUvoice</div><div class="exp-sub lang-ar">منصة آراء طلابية لعرض المقترحات وتحسين التعليم</div><div class="exp-sub lang-en" style="display:none;">Student feedback platform with verification & notifications</div><a href="https://stu-voice.vercel.app/" target="_blank" class="project-link"><span class="lang-ar">زيارة المشروع</span><span class="lang-en" style="display:none;">Visit project</span> <i class="fas fa-arrow-right"></i></a></div>
+          <div class="project-item"><i class="fas fa-tooth" style="color:var(--accent); font-size:24px; margin-bottom:8px;"></i><div class="exp-title">Dentavio</div><div class="exp-sub lang-ar">منصة حجز معدات سنية مع تصفية ودفع</div><div class="exp-sub lang-en" style="display:none;">Dental equipment booking platform</div><a href="https://dentavio.vercel.app/" target="_blank" class="project-link"><span class="lang-ar">زيارة المشروع</span><span class="lang-en" style="display:none;">Visit project</span> <i class="fas fa-arrow-right"></i></a></div>
+          <div class="project-item"><i class="fas fa-store" style="color:var(--accent); font-size:24px;"></i><div class="exp-title">Nabla Store</div><div class="exp-sub lang-ar">متجر رقمي للاشتراكات المدفوعة</div><div class="exp-sub lang-en" style="display:none;">Digital subscriptions creative store</div><a href="https://nabla-store.vercel.app/" target="_blank" class="project-link"><span class="lang-ar">زيارة المشروع</span><span class="lang-en" style="display:none;">Visit project</span> <i class="fas fa-arrow-right"></i></a></div>
+          <div class="project-item"><i class="fas fa-magnifying-glass" style="color:var(--accent); font-size:24px;"></i><div class="exp-title">ECL</div><div class="exp-sub lang-ar">توفير مكتبة ضخمة من المستلزمات التعليمية لطلاب الشهادتين</div><div class="exp-sub lang-en" style="display:none;">Smart search interface</div><a href="https://ecl-onrequest.vercel.app/" target="_blank" class="project-link"><span class="lang-ar">زيارة المشروع</span><span class="lang-en" style="display:none;">Visit project</span> <i class="fas fa-arrow-right"></i></a></div>
+          <hr>
+          <div class="section-title lang-ar">اللغات</div><div class="section-title lang-en" style="display:none;">Languages</div>
+          <div><div class="skill-label"><span class="lang-ar">العربية (لغة أم)</span><span class="lang-en" style="display:none;">Arabic (Native)</span></div><div class="lang-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></div>
+          <div class="mt-2"><div class="skill-label"><span class="lang-ar">الإنجليزية (ممتازة)</span><span class="lang-en" style="display:none;">English (Advanced)</span></div><div class="lang-dots"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></div>
+          <div class="highlight-summary mt-2"><i class="fas fa-crown" style="color:var(--accent);"></i> <strong class="lang-ar">ما أقدمه</strong><strong class="lang-en" style="display:none;">What I bring</strong><ul class="text-muted" style="margin-top: 8px; padding-right: 20px;"><li class="lang-ar">منصات ويب عصرية بأداء عالٍ وتفاعلية فائقة</li><li class="lang-en" style="display:none;">Modern web platforms with high performance and interactivity</li><li class="lang-ar">دمج الحلول الإلكترونية مع الويب لتطبيقات إنترنت الأشياء</li><li class="lang-en" style="display:none;">Embedded + Web integration for IoT solutions</li><li class="lang-ar">حل مشاكل تقنية معقدة بأسلوب منظم واحترافي</li><li class="lang-en" style="display:none;">Solving complex technical problems systematically</li></ul></div>
+        </div>
       </div>
     </main>
   </div>
 
   <script>
-    // Elements
-    const body = document.body;
-    const app = document.getElementById('app');
-    const langBtn = document.getElementById('langBtn');
-    const themeBtn = document.getElementById('themeBtn');
-    const themeIcon = document.getElementById('themeIcon');
+    (function() {
+      // -------- RANDOM PROFILE IMAGE (img1..5) --------------
+      const profileImgElem = document.getElementById('profilePhoto');
+      const imagesList = ["img/img1.png","img/img2.png","img/img3.png","img/img4.png","img/img5.png"];
+      const randomImage = imagesList[Math.floor(Math.random() * imagesList.length)];
+      const testImg = new Image();
+      testImg.onload = () => { profileImgElem.src = randomImage; };
+      testImg.onerror = () => { profileImgElem.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231e6fdf'/%3E%3Ctext x='50' y='67' font-size='48' text-anchor='middle' fill='white'%3EAZ%3C/text%3E%3C/svg%3E"; };
+      testImg.src = randomImage;
 
-    // state
-    let isArabic = true;
-    let isDark = false;
-
-    // initialize from localStorage if exists
-    if(localStorage.getItem('cv_lang')){
-      isArabic = localStorage.getItem('cv_lang') === 'ar';
-    }
-    if(localStorage.getItem('cv_theme')){
-      isDark = localStorage.getItem('cv_theme') === 'dark';
-    }
-
-    function applyLanguage(){
-      // show/hide language spans
-      document.querySelectorAll('.lang-ar').forEach(el => { 
-        el.style.display = isArabic ? '' : 'none'; 
-      });
-      document.querySelectorAll('.lang-en').forEach(el => { 
-        el.style.display = isArabic ? 'none' : ''; 
-      });
-
-      // set direction and body class
-      if(isArabic){
-        document.documentElement.lang = 'ar';
-        document.body.classList.remove('ltr');
-        document.body.classList.add('rtl');
-        document.getElementById('langBtn').setAttribute('aria-pressed','true');
-        document.getElementById('langBtn').querySelectorAll('span')[0].textContent = 'عربي';
-      } else {
-        document.documentElement.lang = 'en';
-        document.body.classList.remove('rtl');
-        document.body.classList.add('ltr');
-        document.getElementById('langBtn').setAttribute('aria-pressed','false');
-        document.getElementById('langBtn').querySelectorAll('span')[0].textContent = 'EN';
-      }
-
-      // flip layout direction for grid if needed (we used logical properties)
-      localStorage.setItem('cv_lang', isArabic ? 'ar' : 'en');
-    }
-
-    function applyTheme(animated = true){
-      if(isDark){
-        document.documentElement.classList.add('dark');
-        themeBtn.setAttribute('aria-pressed','true');
-        // Change icon to sun for dark mode
-        themeIcon.innerHTML = '<path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" stroke="currentColor" stroke-width="1.2"/><path d="M12 1v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M12 21v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M4.22 4.22l1.42 1.42" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M18.36 18.36l1.42 1.42" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M1 12h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M21 12h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M4.22 19.78l1.42-1.42" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>';
-      } else {
-        document.documentElement.classList.remove('dark');
-        themeBtn.setAttribute('aria-pressed','false');
-        // Change icon to moon for light mode
-        themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>';
-      }
-      localStorage.setItem('cv_theme', isDark ? 'dark' : 'light');
-    }
-
-    // toggle handlers
-    langBtn.addEventListener('click', (e) => {
-      isArabic = !isArabic;
-      applyLanguage();
-    });
-
-    themeBtn.addEventListener('click', (e) => {
-      isDark = !isDark;
-      applyTheme();
-    });
-
-    // initial apply
-    applyLanguage();
-    applyTheme();
-
-    // Add animation to elements on load
-    document.addEventListener('DOMContentLoaded', function() {
-      const elements = document.querySelectorAll('.section, .sidebar, .highlight-box');
-      elements.forEach((el, index) => {
-        el.classList.add('animate-fade');
-        el.style.animationDelay = `${index * 0.1}s`;
-      });
-    });
-
-    // Accessibility: keyboard shortcuts L for language, T for theme
-    window.addEventListener('keydown', (e) => {
-      if(e.key === 'l' || e.key === 'L'){
-        isArabic = !isArabic; 
-        applyLanguage();
-      }
-      if(e.key === 't' || e.key === 'T'){
-        isDark = !isDark; 
-        applyTheme();
-      }
-    });
-
-    // Progress bars animation on scroll
-    const observerOptions = {
-      threshold: 0.5
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const progressBars = entry.target.querySelectorAll('.progress');
-          progressBars.forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-              bar.style.width = width;
-            }, 300);
-          });
+      // ---------- LANGUAGE TOGGLE (AR/EN) ----------
+      let isArabic = true;
+      const langBtn = document.getElementById('langToggle');
+      function applyLanguage() {
+        const arElements = document.querySelectorAll('.lang-ar');
+        const enElements = document.querySelectorAll('.lang-en');
+        if (isArabic) {
+          arElements.forEach(el => el.style.display = '');
+          enElements.forEach(el => el.style.display = 'none');
+          document.body.classList.add('rtl');
+          document.body.classList.remove('ltr');
+          document.documentElement.setAttribute('dir', 'rtl');
+          document.documentElement.lang = 'ar';
+        } else {
+          arElements.forEach(el => el.style.display = 'none');
+          enElements.forEach(el => el.style.display = '');
+          document.body.classList.add('ltr');
+          document.body.classList.remove('rtl');
+          document.documentElement.setAttribute('dir', 'ltr');
+          document.documentElement.lang = 'en';
         }
-      });
-    }, observerOptions);
-
-    // Observe sections with progress bars
-    document.querySelectorAll('.section').forEach(section => {
-      if (section.querySelector('.progress-bar')) {
-        observer.observe(section);
+        try { localStorage.setItem('cv_lang', isArabic ? 'ar' : 'en'); } catch(e) {}
       }
-    });
+      langBtn.addEventListener('click', () => { isArabic = !isArabic; applyLanguage(); });
+      
+      // ---------- THEME TOGGLE (DARK/LIGHT) ----------
+      let isDark = false;
+      const themeBtn = document.getElementById('themeToggle');
+      const themeIcon = themeBtn.querySelector('i');
+      function applyTheme() {
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          themeIcon.className = 'fas fa-sun';
+        } else {
+          document.documentElement.classList.remove('dark');
+          themeIcon.className = 'fas fa-moon';
+        }
+        try { localStorage.setItem('cv_theme', isDark ? 'dark' : 'light'); } catch(e) {}
+      }
+      themeBtn.addEventListener('click', () => { isDark = !isDark; applyTheme(); });
+      
+      // Load stored preferences
+      try {
+        const storedLang = localStorage.getItem('cv_lang');
+        if (storedLang === 'en') { isArabic = false; }
+        const storedTheme = localStorage.getItem('cv_theme');
+        if (storedTheme === 'dark') { isDark = true; }
+      } catch(e) {}
+      applyLanguage();
+      applyTheme();
+      
+      // ---------- ANIMATE PROGRESS BARS ON VIEW ----------
+      const progressBars = document.querySelectorAll('.progress-fill');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const bar = entry.target;
+            const width = bar.getAttribute('data-width');
+            if (width && bar.style.width !== width+'%') {
+              bar.style.width = width + '%';
+            }
+          }
+        });
+      }, { threshold: 0.3 });
+      progressBars.forEach(bar => observer.observe(bar));
+      
+      // Set initial width after small delay to prevent glitch
+      setTimeout(() => {
+        progressBars.forEach(bar => {
+          const w = bar.getAttribute('data-width');
+          if (w && !bar.style.width) bar.style.width = w + '%';
+        });
+      }, 200);
+      
+      // Keyboard shortcuts: L for language, T for theme
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'l' || e.key === 'L') { isArabic = !isArabic; applyLanguage(); }
+        if (e.key === 't' || e.key === 'T') { isDark = !isDark; applyTheme(); }
+      });
+    })();
+
+
+    // Lightbox functionality for profile image
+const photoWrapper = document.getElementById('photoWrapper');
+const profilePhotoImg = document.getElementById('profilePhoto');
+const lightboxOverlay = document.getElementById('lightboxOverlay');
+const lightboxImage = document.getElementById('lightboxImage');
+const closeLightbox = document.getElementById('closeLightbox');
+
+// عند النقر على الصورة أو الـ wrapper
+function openLightbox() {
+  // نسخ مصدر الصورة إلى الـ lightbox
+  lightboxImage.src = profilePhotoImg.src;
+  // عرض الـ overlay
+  lightboxOverlay.classList.add('active');
+  // منع تمرير الخلفية
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightboxFunction() {
+  lightboxOverlay.classList.remove('active');
+  // إعادة التمرير
+  document.body.style.overflow = '';
+}
+
+// حدث النقر على الصورة
+if (photoWrapper) {
+  photoWrapper.addEventListener('click', openLightbox);
+}
+
+// إغلاق الـ lightbox عند النقر على الزر
+if (closeLightbox) {
+  closeLightbox.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeLightboxFunction();
+  });
+}
+
+// إغلاق الـ lightbox عند النقر على الخلفية
+if (lightboxOverlay) {
+  lightboxOverlay.addEventListener('click', function(e) {
+    if (e.target === lightboxOverlay) {
+      closeLightboxFunction();
+    }
+  });
+}
+
+// إغلاق بالضغط على زر ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && lightboxOverlay && lightboxOverlay.classList.contains('active')) {
+    closeLightboxFunction();
+  }
+});
   </script>
 </body>
 </html>
